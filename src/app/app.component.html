@@ -1,0 +1,20 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<h5>Advanced</h5>
+<p>Organization with advanced customization.</p>
+<p-organizationChart [value]="data1" selectionMode="single" [(selection)]="selectedNode" (onNodeSelect)="onNodeSelect($event)"
+    styleClass="company">
+    <ng-template let-node pTemplate="person">
+        <div class="node-header p-corner-top">{{node.label}}</div>
+        <div class="node-content">
+            <div>{{node.data.name}}</div>
+        </div>
+    </ng-template>
+    <ng-template let-node pTemplate="department">
+        {{node.label}}
+    </ng-template>
+</p-organizationChart>
+
+<h5>Basic</h5>
+<p>Hierarchical data with zero configuration.</p>
+<p-organizationChart [value]="data2"></p-organizationChart>
